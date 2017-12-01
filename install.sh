@@ -98,8 +98,16 @@ if uname -a | grep -qi 'Darwin'; then
   which zsh > /dev/null 2>&1 || brew install zsh zsh-completions
 
   echo 'Setting the login shell to zsh...'
-  sudo sh -c "grep -qi \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" >> /etc/shells"
-  sudo chsh -s "$(which zsh)" "$(whoami)"
+  #sudo sh -c "grep -qi \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" >> /etc/shells"
+  #sudo chsh -s "$(which zsh)" "$(whoami)"
+
+  echo $0 | grep zsh > /dev/null 2>&1 | true
+  if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    info "changing your login shell to zsh"
+    chsh -s $(which zsh);ok
+  else
+    info "looks like you are already using zsh. woot!"
+  fi
 
   echo 'Installing oh-my-zsh...'
   rm -rf ~/.oh-my-zsh.old
@@ -133,7 +141,7 @@ if uname -a | grep -qi 'Darwin'; then
   cp  "$DIR/zshrc" ~/.zshrc
   rm -rf ~/.config/base16-shell
   mkdir -p ~/.config/base16-shell
-  cp -r "$DIR/.config/base16-shell" ~/.config
+  cp -r "$DIR/config/base16-shell" ~/.config
   rm -rf ~/.config/nvim
   mkdir -p ~/.config/nvim
   cp -r "$DIR/config/nvim" ~/.config
