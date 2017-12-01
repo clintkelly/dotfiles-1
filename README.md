@@ -1,6 +1,4 @@
-# Stephan’s dotfiles
-
-![Screenshot](https://raw.githubusercontent.com/stepchowfun/dotfiles/master/screenshot.png)
+# Clint's dotfiles, ripped off from Stephan
 
 ## Installation
 

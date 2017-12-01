@@ -103,7 +103,9 @@ if uname -a | grep -qi 'Darwin'; then
 
   echo 'Installing oh-my-zsh...'
   rm -rf ~/.oh-my-zsh.old
-  mv ~/.oh-my-zsh ~/.oh-my-zsh.old
+  if [ -d ~/.oh-my-zsh ]; then
+	  mv -f ~/.oh-my-zsh ~/.oh-my-zsh.old
+  fi
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
   echo 'Installing powerline-fonts...'
@@ -127,14 +129,14 @@ if uname -a | grep -qi 'Darwin'; then
   (cd $DIR && git submodule update --init)
 
   echo 'Installing dotfiles...'
-  cp  "$DIR/.tmux.conf" ~/.tmux.conf
-  cp  "$DIR/.zshrc" ~/.zshrc
+  cp  "$DIR/tmux.conf" ~/.tmux.conf
+  cp  "$DIR/zshrc" ~/.zshrc
   rm -rf ~/.config/base16-shell
   mkdir -p ~/.config/base16-shell
   cp -r "$DIR/.config/base16-shell" ~/.config
   rm -rf ~/.config/nvim
   mkdir -p ~/.config/nvim
-  cp -r "$DIR/.config/nvim" ~/.config
+  cp -r "$DIR/config/nvim" ~/.config
 
   echo 'Installing vim plugins...'
   nvim -c PlugInstall -c qa
