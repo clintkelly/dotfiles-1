@@ -129,14 +129,23 @@ if uname -a | grep -qi 'Darwin'; then
   (cd $DIR && git submodule update --init)
 
   echo 'Installing dotfiles...'
-  cp  "$DIR/tmux.conf" ~/.tmux.conf
-  cp  "$DIR/zshrc" ~/.zshrc
+  if [ -f ~/.tmux.conf ] || [ -h ~/.tmux.conf ]; then
+    mv -f ~/.tmux.conf ~/.tmux.conf.old
+  fi
+  ln -s "$DIR/tmux.conf" ~/.tmux.conf
+
+  if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
+    mv -f ~/.zshrc ~/.zshrc.old
+  fi
+  ln -s "$DIR/zshrc" ~/.zshrc
+
   rm -rf ~/.config/base16-shell
   mkdir -p ~/.config/base16-shell
-  cp -r "$DIR/config/base16-shell" ~/.config
+  cp -r "$DIR/config/base16-shell" ~/.config/.
+
   rm -rf ~/.config/nvim
-  mkdir -p ~/.config/nvim
-  cp -r "$DIR/config/nvim" ~/.config
+  mkdir -p ~/.config
+  ln -s "$DIR/config/nvim" ~/.config
 
   echo 'Installing vim plugins...'
   nvim -c PlugInstall -c qa
