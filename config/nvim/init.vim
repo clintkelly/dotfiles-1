@@ -30,8 +30,11 @@ Plug 'christoomey/vim-tmux-navigator'
 " End vim-plug
 call plug#end()
 
-" Set the leader to ,.
-let mapleader = ","
+" This means that you don't have to use escape too much
+" Remap esc maybe to "df"
+inoremap df <ESC>
+
+let mapleader = "\<Space>"
 
 " Load the current base16-vim color scheme.
 if filereadable(expand("~/.vimrc_background"))
@@ -109,10 +112,25 @@ set breakindent
 set breakindentopt=shift:2,sbr
 
 " Turn on spell checking everywhere.
-set spell spelllang=en_us
-syntax spell toplevel
-autocmd Syntax * :syntax spell toplevel
+"set spell spelllang=en_us
+"syntax spell toplevel
+"autocmd Syntax * :syntax spell toplevel
 
 " Custom file type mappings
-autocmd BufNewFile,BufRead *.hql set syntax=sql
-autocmd BufNewFile,BufRead *.txt set syntax=ruby
+"autocmd BufNewFile,BufRead *.hql set syntax=sql
+"autocmd BufNewFile,BufRead *.txt set syntax=ruby
+
+" One of the most common things I do is set paste / set nopaste
+nnoremap <Leader>p :set paste<CR>
+nnoremap <Leader>P :set nopaste<CR>
+
+" Keeps at lease ten lines above and below the cursor at all times!
+set scrolloff=10
+
+" Enables you to open files in the directory of the current buffer
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+" map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+
+

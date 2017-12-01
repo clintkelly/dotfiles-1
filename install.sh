@@ -101,14 +101,6 @@ if uname -a | grep -qi 'Darwin'; then
   #sudo sh -c "grep -qi \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" >> /etc/shells"
   #sudo chsh -s "$(which zsh)" "$(whoami)"
 
-  echo $0 | grep zsh > /dev/null 2>&1 | true
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "changing your login shell to zsh"
-    chsh -s $(which zsh);ok
-  else
-    info "looks like you are already using zsh. woot!"
-  fi
-
   echo 'Installing oh-my-zsh...'
   rm -rf ~/.oh-my-zsh.old
   if [ -d ~/.oh-my-zsh ]; then
@@ -160,6 +152,11 @@ if uname -a | grep -qi 'Darwin'; then
 
   echo 'Setting base16-shell color scheme...'
   zsh -ic base16_circus
+
+  echo 'Install tmux package manager'
+  rm -rf ~/.config/tmux
+  mkdir -p ~/.config/tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
   echo 'Reloading tmux config...'
   tmux source-file ~/.tmux.conf || true

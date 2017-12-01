@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -92,8 +92,8 @@ prompt_dir() {
 # us from accidentally terminating the shell with it.
 setopt ignoreeof
 
-# vim keybindings
-bindkey -v
+# emacs keybindings
+bindkey -e
 
 # Other keybindings
 bindkey '^P' up-history
@@ -109,3 +109,56 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # Local configuration
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local || true
+
+alias reload!='. ~/.zshrc'
+
+alias readlink='greadlink'
+alias history='history 1'
+alias h='history | tail -n 50'
+alias c='clear'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias vim='/usr/local/bin/vim'
+alias vi='/usr/local/bin/vim'
+alias ll='ls -l'
+alias la='ls -a'
+
+alias hg='history | grep '
+
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
+alias certs="curl http://curl.haxx.se/ca/cacert.pem > /usr/local/etc/openssl/cert.pem"
+
+# -----------------------------------------------------------------------------
+# Custom stuff from Clint
+
+# Fix ridiculous ulimit.
+#ulimit -S -n 16384
+
+# Explicitly set JAVA_HOME
+#JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$JAVA_HOME
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PYENV_ROOT=/usr/local/opt/pyenv
+eval "$(pyenv init -)"
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+eval "$(hub alias -s)"
+
+#export PATH="$HOME/anaconda3/bin:$PATH"
+#
+export VIMCONFIG=$HOME/.config/nvim
+export VIMDATA=$HOME/.local/share/nvim
+
+# Bindings to search history for lines matching current line up to cursor
+bindkey '^xp' history-beginning-search-backward
+bindkey '^xn' history-beginning-search-forward
+
+# -----------------------------------------------------------------------------
+# Fiddle around with named directories
+hash -d dotfiles=~/.dotfiles
