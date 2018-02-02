@@ -119,10 +119,11 @@ alias c='clear'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias vim='/usr/local/bin/vim'
-alias vi='/usr/local/bin/vim'
+alias vim=nvim
+alias vi=nvim
 alias ll='ls -l'
 alias la='ls -a'
+alias lla='ls -la'
 
 alias hg='history | grep '
 
@@ -162,3 +163,16 @@ bindkey '^xn' history-beginning-search-forward
 # -----------------------------------------------------------------------------
 # Fiddle around with named directories
 hash -d dotfiles=~/.dotfiles
+
+# -----------------------------------------------------------------------------
+# afdev stuff
+# afdev
+export DATA_DIR=$HOME/repos/data #PATH WHERE YOU CLONED THE DATA REPO
+export AFDEV_HOST="i-9167dd87.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
+export AFDEV_PORT=61903 #CHOOSE A DIFFERENT PORT
+# optional
+export AFDEV_USER="clint_kelly"
+
+function redsync {
+  rsync -azP ${1}/ ${AFDEV_HOST}:~/${1}
+}

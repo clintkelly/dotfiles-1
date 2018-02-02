@@ -6,6 +6,7 @@ Plug 'chriskempson/base16-vim'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
 
 " easymotion
 Plug 'easymotion/vim-easymotion'
@@ -26,6 +27,11 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
+
+" Others I may want to use:
+" syntastic
+" vim-javascript
+" ctrlp.vim
 
 " End vim-plug
 call plug#end()
@@ -139,13 +145,12 @@ set hlsearch
 set incsearch
 
 vmap " Simple way to turn off highlighting
-nnoremap <leader><space> :noh<cr>
+"nnoremap <leader><space> :noh<cr>
 
 " Easier options for searching
 set ignorecase
 set smartcase
 
-" Search for selected text in visual mode with */#
 " effect: overrides unnamed register
 " Simplest version: vnoremap * y/<C-R>"<CR>
 " Better one: vnoremap * y/\V<C-R>=escape(@@,"/\\")<CR><CR>
@@ -161,4 +166,5 @@ set smartcase
 vnoremap * y/\V<C-R>=substitute(escape(@@,"/\\"),"\n","\\\\n","ge")<CR><CR>
 vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
 
-
+"Use deoplete!
+"let g:deoplete#enable_at_startup = 1
