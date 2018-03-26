@@ -88,6 +88,8 @@ fi
 if uname -a | grep -qi 'Darwin'; then
   echo 'macOS detected.'
 
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
   echo 'Updating homebrew...'
   brew update
 
@@ -98,8 +100,8 @@ if uname -a | grep -qi 'Darwin'; then
   which zsh > /dev/null 2>&1 || brew install zsh zsh-completions
 
   echo 'Setting the login shell to zsh...'
-  #sudo sh -c "grep -qi \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" >> /etc/shells"
-  #sudo chsh -s "$(which zsh)" "$(whoami)"
+  sudo sh -c "grep -qi \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" >> /etc/shells"
+  sudo chsh -s "$(which zsh)" "$(whoami)"
 
   echo 'Installing oh-my-zsh...'
   rm -rf ~/.oh-my-zsh.old
