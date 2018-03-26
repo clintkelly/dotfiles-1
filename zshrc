@@ -151,7 +151,7 @@ eval "$(pyenv init -)"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 eval "$(hub alias -s)"
 
-#export PATH="$HOME/anaconda3/bin:$PATH"
+export PATH="$PATH:$HOME/anaconda3/bin"
 #
 export VIMCONFIG=$HOME/.config/nvim
 export VIMDATA=$HOME/.local/share/nvim
@@ -168,11 +168,13 @@ hash -d dotfiles=~/.dotfiles
 # afdev stuff
 # afdev
 export DATA_DIR=$HOME/repos/data #PATH WHERE YOU CLONED THE DATA REPO
-export AFDEV_HOST="i-9167dd87.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
+export AFDEV_HOST="i-0f05a04cca3b622de.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
 export AFDEV_PORT=61903 #CHOOSE A DIFFERENT PORT
 # optional
 export AFDEV_USER="clint_kelly"
 
 function redsync {
-  rsync -azP ${1}/ ${AFDEV_HOST}:~/${1}
+  rsync -vv -azP ${1}/ ${AFDEV_HOST}:~/${1}
 }
+
+export PATH="$PATH:$HOME/repos/sysops/optica_tools"
