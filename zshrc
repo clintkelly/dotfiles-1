@@ -178,4 +178,9 @@ function redsync {
   rsync -vv -azP ${1}/ ${AFDEV_HOST}:~/${1}
 }
 
+# Python virtualenv manager:
+# http://docs.python-guide.org/en/latest/dev/virtualenvs/
 export PATH="$PATH:$HOME/repos/sysops/optica_tools"
+
+export WORKON_HOME=~/.workon
+source /usr/local/bin/virtualenvwrapper.sh
