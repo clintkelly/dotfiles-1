@@ -87,6 +87,10 @@ fi
 
 if uname -a | grep -qi 'Darwin'; then
   echo 'macOS detected.'
+  defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+  defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+  defaults write -g com.apple.swipescrolldirection -bool FALSE
+
 
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -174,6 +178,14 @@ if uname -a | grep -qi 'Darwin'; then
 
   echo 'Installing ripgrep...'
   which rg > /dev/null 2>&1 || brew install ripgrep
+
+  brew install hub
+  brew install python2
+  brew install pyenv
+  brew install ruby
+  gem install tmuxinator
+
+  brew cask install dropbox
 
   echo 'Done.'
   exit
