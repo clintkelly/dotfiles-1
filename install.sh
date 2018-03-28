@@ -194,6 +194,10 @@ if uname -a | grep -qi 'Darwin'; then
   pip2 install virtualenv
   pip2 install virtualenvwrapper
 
+  echo 'Setting up Java...'
+  brew cask install java
+  brew install maven
+
   echo 'Done.'
   exit
 fi

@@ -169,7 +169,7 @@ hash -d dotfiles=~/.dotfiles
 # afdev stuff
 # afdev
 export DATA_DIR=$HOME/repos/data #PATH WHERE YOU CLONED THE DATA REPO
-export AFDEV_HOST="i-0f05a04cca3b622de.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
+export AFDEV_HOST="i-0e8b1515c44498544.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
 export AFDEV_PORT=61903 #CHOOSE A DIFFERENT PORT
 # optional
 export AFDEV_USER="clint_kelly"
