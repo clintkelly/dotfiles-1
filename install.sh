@@ -179,13 +179,16 @@ if uname -a | grep -qi 'Darwin'; then
   echo 'Installing ripgrep...'
   which rg > /dev/null 2>&1 || brew install ripgrep
 
+  echo 'Installing  Dropbox...'
+  brew cask install dropbox
+
+  echo 'Installing useful stuff...'
   brew install hub
   brew install python2
   brew install pyenv
   brew install ruby
   gem install tmuxinator
-
-  brew cask install dropbox
+  brew install ag
 
   echo 'Setting up Python...'
   pip2 install virtualenv
