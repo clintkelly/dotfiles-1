@@ -184,3 +184,6 @@ export PATH="$PATH:$HOME/repos/sysops/optica_tools"
 
 export WORKON_HOME=~/.workon
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Always use Java 8
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
