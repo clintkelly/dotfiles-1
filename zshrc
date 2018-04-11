@@ -187,3 +187,14 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Always use Java 8
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper {{{
+# Airlab will only make edits inside these delimiters.
+
+# Source Airlab's shell integration, if it exists.
+if [ -e ~/.airlab/shellhelper.sh ]; then
+  source ~/.airlab/shellhelper.sh
+fi
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
+#
+alias dc=docker-compose

@@ -199,9 +199,8 @@ if uname -a | grep -qi 'Darwin'; then
   brew install caskroom/versions/java8
   brew install maven
 
-  brew install mysql
-  brew install chromedriver
-  brew install jq
+  echo 'Setting up other work stuff'
+  brew install mysql chromedriver jq libev
 
   curl -L https://raw.git.musta.ch/airbnb/sysops/master/optica_tools/optica?token=AAACYF-3I4wQZehLuE8lk0GSD2RQVEZqks5axqJRwA%3D%3D -o /usr/local/bin/optica
   chmod a+x /usr/local/bin/optica
