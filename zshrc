@@ -198,3 +198,5 @@ fi
 # AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
 #
 alias dc=docker-compose
+
+export PYTHONSTARTUP=~/.pythonrc
