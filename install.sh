@@ -132,9 +132,14 @@ if uname -a | grep -qi 'Darwin'; then
   brew list chromedriver &> /dev/null || brew install chromedriver
   brew list jq &> /dev/null || brew install jq
   brew list libev &> /dev/null || brew install libev
-
-  curl -L https://raw.git.musta.ch/airbnb/sysops/master/optica_tools/optica?token=AAACYF-3I4wQZehLuE8lk0GSD2RQVEZqks5axqJRwA%3D%3D -o /usr/local/bin/optica
+  brew list watch &> /dev/null || brew install watch
+  curl -L 'https://raw.git.musta.ch/airbnb/sysops/master/optica_tools/optica?token=AAACYGZku20eDheZx11JMvt9OUonKK94ks5a83UqwA%3D%3D' -o /usr/local/bin/optica
   chmod a+x /usr/local/bin/optica
+
+  echo 'Installing fisher and bass'
+  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  fisher edc/bass
+
 
   echo 'Done.'
   exit

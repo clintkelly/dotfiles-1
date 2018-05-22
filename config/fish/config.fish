@@ -37,7 +37,7 @@ set -x VIMDATA $HOME/.local/share/nvim
 
 
 set -x DATA_DIR $HOME/repos/data #PATH WHERE YOU CLONED THE DATA REPO
-set -x AFDEV_HOST "i-0e8b1515c44498544.inst.aws.airbnb.com" #CHOOSE A DIFFERENT HOST
+set -x AFDEV_HOST i-0e8b1515c44498544.inst.aws.airbnb.com
 set -x AFDEV_PORT 61903 #CHOOSE A DIFFERENT PORT
 set -x AFDEV_USER "clint_kelly"
 
@@ -53,3 +53,4 @@ set -x VIRTUALFISH_HOME ~/.workon
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 
 alias dc=docker-compose
+bass source ~/.airlab/shellhelper.sh

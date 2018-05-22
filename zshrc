@@ -200,3 +200,4 @@ fi
 alias dc=docker-compose
 
 export PYTHONSTARTUP=~/.pythonrc
+
