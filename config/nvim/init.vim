@@ -28,6 +28,12 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'kien/ctrlp.vim'
+
+Plug 'hashivim/vim-terraform'
+
+Plug 'solarnz/thrift.vim'
+
 " Others I may want to use:
 " syntastic
 " vim-javascript

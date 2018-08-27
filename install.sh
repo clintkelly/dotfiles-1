@@ -139,6 +139,7 @@ if uname -a | grep -qi 'Darwin'; then
   echo 'Installing fisher and bass'
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
   fisher edc/bass
+  fisher nvm
 
 
   echo 'Done.'

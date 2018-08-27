@@ -1,0 +1,5 @@
+config/fish/completions/
+config/fish/conf.d/
+config/fish/fishd.*
+config/fish/fishfile
+config/fish/functions/

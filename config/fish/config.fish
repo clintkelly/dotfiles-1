@@ -36,9 +36,9 @@ set -x VIMCONFIG $HOME/.config/nvim
 set -x VIMDATA $HOME/.local/share/nvim
 
 
-set -x DATA_DIR $HOME/repos/data #PATH WHERE YOU CLONED THE DATA REPO
-set -x AFDEV_HOST i-0e8b1515c44498544.inst.aws.airbnb.com
-set -x AFDEV_PORT 61903 #CHOOSE A DIFFERENT PORT
+set -x DATA_DIR $HOME/repos/data
+set -x AFDEV_HOST i-025569352e5effab8.inst.aws.airbnb.com
+set -x AFDEV_PORT 61977
 set -x AFDEV_USER "clint_kelly"
 
 set -x PATH $PATH $HOME/repos/sysops/optica_tools
@@ -54,3 +54,6 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 
 alias dc=docker-compose
 bass source ~/.airlab/shellhelper.sh
+
+# Set up rbenv
+status --is-interactive; and source (rbenv init -|psub)
