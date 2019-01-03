@@ -34,6 +34,8 @@ Plug 'hashivim/vim-terraform'
 
 Plug 'solarnz/thrift.vim'
 
+Plug 'jelera/vim-javascript-syntax'
+
 " Others I may want to use:
 " syntastic
 " vim-javascript

@@ -139,8 +139,12 @@ if uname -a | grep -qi 'Darwin'; then
   echo 'Installing fisher and bass'
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
   fisher edc/bass
-  fisher nvm
+  fisher fnm
 
+  # TODO: rbenv, rbenv-bundler
+
+  # simpler alternative to find
+  brew list fd &> /dev/null || brew install fd
 
   echo 'Done.'
   exit
