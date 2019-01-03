@@ -20,8 +20,8 @@ if uname -a | grep -qi 'Darwin'; then
 
   echo 'Installing fish...'
   which fish > /dev/null 2>&1 || brew install fish
-  mkdir -p ~/.config/fish
-  ln -s "$DIR/config/fish" ~/.config/.
+  mkdir -p ~/.config
+  ln -fs "$DIR/config/fish" ~/.config/.
 
   echo 'Installing core utils...'
   which gls > /dev/null 2>&1 || brew install coreutils
@@ -107,14 +107,15 @@ if uname -a | grep -qi 'Darwin'; then
   which rg > /dev/null 2>&1 || brew install ripgrep
 
   echo 'Installing  Dropbox...'
-  brew cask install dropbox
+  #brew cask install dropbox
 
   echo 'Installing useful stuff...'
   brew list hub &> /dev/null || brew install hub
   brew list python2 &> /dev/null || brew install python2
   brew list pyenv &> /dev/null || brew install pyenv
   brew list ruby &> /dev/null || brew install ruby
-  gem install tmuxinator
+  brew list rbenv &> /dev/null || brew install rbenv
+  sudo gem install tmuxinator
   brew list ag &> /dev/null || brew install ag
 
   echo 'Setting up Python...'
@@ -129,7 +130,7 @@ if uname -a | grep -qi 'Darwin'; then
 
   echo 'Setting up other work stuff'
   brew list mysql &> /dev/null || brew install mysql
-  brew list chromedriver &> /dev/null || brew install chromedriver
+  brew list chromedriver &> /dev/null || brew cask install chromedriver
   brew list jq &> /dev/null || brew install jq
   brew list libev &> /dev/null || brew install libev
   brew list watch &> /dev/null || brew install watch
@@ -137,9 +138,10 @@ if uname -a | grep -qi 'Darwin'; then
   chmod a+x /usr/local/bin/optica
 
   echo 'Installing fisher and bass'
-  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-  fisher edc/bass
-  fisher fnm
+  #curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+  fisher add edc/bass
+  fisher add fnm
 
   # TODO: rbenv, rbenv-bundler
 
