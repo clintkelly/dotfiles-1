@@ -134,6 +134,8 @@ if uname -a | grep -qi 'Darwin'; then
   brew list jq &> /dev/null || brew install jq
   brew list libev &> /dev/null || brew install libev
   brew list watch &> /dev/null || brew install watch
+  brew list scala &> /dev/null || brew install scala
+  brew list gradle &> /dev/null || brew install gradle
   curl -L 'https://raw.git.musta.ch/airbnb/sysops/master/optica_tools/optica?token=AAACYGZku20eDheZx11JMvt9OUonKK94ks5a83UqwA%3D%3D' -o /usr/local/bin/optica
   chmod a+x /usr/local/bin/optica
 
@@ -141,12 +143,24 @@ if uname -a | grep -qi 'Darwin'; then
   #curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
   curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
   fisher add edc/bass
-  fisher add fnm
+  fisher add jorgebucaran/fnm
+  fnm ls; fnm latest
+  npm install -g tldr
 
   # TODO: rbenv, rbenv-bundler
 
   # simpler alternative to find
   brew list fd &> /dev/null || brew install fd
+
+  # Git aliases
+  echo 'Setting up git aliases'
+  git config --global alias.co checkout
+  git config --global alias.ci commit
+  git config --global alias.st status
+  git config --global alias.br branch
+  git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+  git config --global alias.type 'cat-file -t'
+  git config --global alias.dump 'cat-file -p'
 
   echo 'Done.'
   exit
@@ -229,6 +243,10 @@ if uname -a | grep -qi 'Ubuntu'; then
   tar -xzf ripgrep.tar.gz -C ripgrep --strip-components=1
   sudo cp ripgrep/rg /usr/local/bin
   rm -rf ripgrep ripgrep.tar.gz
+
+  echo "pypi stuff..."
+  mkdir -p ~/.pip
+  ln -fs "$DIR/pip.conf" ~/.pip/.
 
   echo 'Done.'
   exit

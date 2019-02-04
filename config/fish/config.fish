@@ -37,7 +37,8 @@ set -x VIMDATA $HOME/.local/share/nvim
 
 
 set -x DATA_DIR $HOME/repos/data
-set -x AFDEV_HOST i-0dcbb25d3cb8db907.inst.aws.airbnb.com
+set -x AFDEV_HOST i-0d76f5887468e4ff8.inst.aws.airbnb.com
+
 
 set -x AFDEV_PORT 61977
 set -x AFDEV_USER "clint_kelly"
@@ -55,6 +56,8 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 
 alias dc=docker-compose
 bass source ~/.airlab/shellhelper.sh
+
+set -x REMOTE_BUILDS y
 
 # Set up rbenv
 status --is-interactive; and source (rbenv init -|psub)
