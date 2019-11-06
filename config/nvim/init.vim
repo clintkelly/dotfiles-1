@@ -36,6 +36,8 @@ Plug 'solarnz/thrift.vim'
 
 Plug 'jelera/vim-javascript-syntax'
 
+Plug 'jparise/vim-graphql'
+
 " Others I may want to use:
 " syntastic
 " vim-javascript

@@ -37,17 +37,16 @@ set -x VIMDATA $HOME/.local/share/nvim
 
 
 set -x DATA_DIR $HOME/repos/data
-set -x AFDEV_HOST i-0d76f5887468e4ff8.inst.aws.airbnb.com
-
+set -x AFDEV_HOST i-0367c87b0437ae7aa.inst.aws.airbnb.com
 
 set -x AFDEV_PORT 61977
 set -x AFDEV_USER "clint_kelly"
 
 set -x PATH $PATH $HOME/repos/sysops/optica_tools
 
-set -x WORKON_HOME ~/.workon
-eval (python -m virtualfish compat_aliases)
-set -x VIRTUALFISH_HOME ~/.workon
+#set -x WORKON_HOME ~/.workon
+#eval (python -m virtualfish compat_aliases)
+#set -x VIRTUALFISH_HOME ~/.workon
 
 # Eeek!
 #source /usr/local/bin/virtualenvwrapper.sh
@@ -57,7 +56,20 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 alias dc=docker-compose
 bass source ~/.airlab/shellhelper.sh
 
-set -x REMOTE_BUILDS y
+# set -x REMOTE_BUILDS y
+set -x PAGER less
+
+set -x EMR_HOST i-0ebff050c2cc89eb1.inst.aws.airbnb.com
+
+set -x AWS_PROFILE_NOMFA default
 
 # Set up rbenv
-status --is-interactive; and source (rbenv init -|psub)
+#status --is-interactive; and source (rbenv init -|psub)
+set -g fish_user_paths "/usr/local/opt/openssl/bin" $fish_user_paths
+set -x K2 ys
+
+# Use gmake as make
+set -x PATH (brew --prefix)/opt/make/libexec/gnubin $PATH
+set -x PATH (brew --prefix)/opt/bison/bin $PATH
+set -x LDFLAGS "-L/usr/local/opt/bison/lib"
+pyenv init - | source

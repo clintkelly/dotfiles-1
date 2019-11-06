@@ -113,6 +113,7 @@ if uname -a | grep -qi 'Darwin'; then
   brew list hub &> /dev/null || brew install hub
   brew list python2 &> /dev/null || brew install python2
   brew list pyenv &> /dev/null || brew install pyenv
+  brew list zlib &> /dev/null || brew install zlib
   brew list ruby &> /dev/null || brew install ruby
   brew list rbenv &> /dev/null || brew install rbenv
   sudo gem install tmuxinator
@@ -151,6 +152,8 @@ if uname -a | grep -qi 'Darwin'; then
 
   # simpler alternative to find
   brew list fd &> /dev/null || brew install fd
+  # Better for man pages
+  brew list most &> /dev/null || brew install most
 
   # Git aliases
   echo 'Setting up git aliases'
