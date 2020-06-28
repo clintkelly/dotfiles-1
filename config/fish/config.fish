@@ -37,7 +37,7 @@ set -x VIMDATA $HOME/.local/share/nvim
 
 
 set -x DATA_DIR $HOME/repos/data
-set -x AFDEV_HOST i-0367c87b0437ae7aa.inst.aws.airbnb.com
+set -x AFDEV_HOST i-00636b639a010cbcc.inst.aws.airbnb.com
 
 set -x AFDEV_PORT 61977
 set -x AFDEV_USER "clint_kelly"
@@ -67,6 +67,10 @@ set -x AWS_PROFILE_NOMFA default
 #status --is-interactive; and source (rbenv init -|psub)
 set -g fish_user_paths "/usr/local/opt/openssl/bin" $fish_user_paths
 set -x K2 ys
+
+set -x INQUIRY_REPO $HOME/airlab/repos/minerva-inquiry
+set -x DATA_REPO $HOME/repos/data
+set -x IGNORE_K_CERTS_IAM_MFA_WARNING yep
 
 # Use gmake as make
 set -x PATH (brew --prefix)/opt/make/libexec/gnubin $PATH
